@@ -42,4 +42,17 @@ class ProductRepositoryTest {
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldRemoveAllById() {
+        repository.save(book);
+        repository.save(smartphone);
+        repository.save(product);
+        repository.removeById(111);
+        repository.removeById(222);
+        repository.removeById(333);
+        Product[] expected = {};
+        Product[] actual = repository.findAll();
+        assertArrayEquals(expected, actual);
+    }
 }
